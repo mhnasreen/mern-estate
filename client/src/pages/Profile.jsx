@@ -18,6 +18,7 @@ useEffect(() =>{
     if(file) {
     handleFileUpload(file);
   }
+// eslint-disable-next-line react-hooks/exhaustive-deps
 }, [file]);
 const handleFileUpload = (file) => {
   const storage = getStorage(app);
@@ -29,6 +30,7 @@ const handleFileUpload = (file) => {
     const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
    setFilePerc(Math.round(progress));
   },
+  // eslint-disable-next-line no-unused-vars
   (error) => { 
     setFileUploadError(true);
   },
