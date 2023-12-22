@@ -34,7 +34,7 @@ export const updateListing = async(req, res, next) => {
     if(!listing){
         return next(errorHandler(404, 'Listing not found!'));
     }if(req.user.id !== listing.userRef){
-        return next(errorHandler(401, 'Ypu can update only your listings!'))
+        return next(errorHandler(401, 'You can update only your listings!'))
     }
     try{
         const updatedListing = await Listing.findByIdAndUpdate(
@@ -47,7 +47,7 @@ export const updateListing = async(req, res, next) => {
     }catch(error){
         next(error);
     }
-}
+};
 
 export const getListing = async(req, res, next) =>
 {

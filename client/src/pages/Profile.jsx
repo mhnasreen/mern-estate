@@ -185,7 +185,8 @@ const handleListingDelete =  async(listingId) => {
           defaultValue={currentUser.username} 
           id = 'username' 
           className='border p-3 rounded-lg' 
-          onChange={handleChange}/>
+          onChange={handleChange}
+          />
 
         <input type = "email" 
         placeholder='email' 
