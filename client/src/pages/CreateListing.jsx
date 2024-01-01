@@ -51,6 +51,7 @@ export default function CreateListing() {
             setImageUploadError(false);
             setUploading(false);
         })
+        // eslint-disable-next-line no-unused-vars
         .catch((err) => {
             setImageUploadError('Image upload failed (2 mb max per image)');
             setUploading(false);
@@ -110,7 +111,7 @@ export default function CreateListing() {
                 ...formData,
                 [e.target.id]: e.target.value
               
-            })
+            });
         }
 
     };

@@ -20,7 +20,7 @@ const [filePerc, setFilePerc] = useState(0);
 const [fileUploadError, setFileUploadError] = useState (false);
 const [formData, setFormData] = useState({});
 const [updateSuccess, setUpdateSuccess] = useState(false);
-const [ShowListingsError, setShowListingsError] = useState(false);
+const [showListingsError, setShowListingsError] = useState(false);
 const [userListings, setUserListings] = useState([]);
 const dispatch = useDispatch();
 
@@ -100,11 +100,11 @@ const handleDeleteUser = async () => {
   } catch (error) {
     dispatch(deleteUserFailure(error.message))
   }
-}
+};
 
 const handleSignOut = async() => {
   try{
-    dispatch(signOutUserStart())
+    dispatch(signOutUserStart());
     const res = await fetch('/api/auth/signout');
     const data = await res.json();
     if(data.success === false){
@@ -117,7 +117,7 @@ const handleSignOut = async() => {
     dispatch(deleteUserFailure(data.message));
 
   }
-}
+};
 
 const handleShowListings = async () => {
   try{
@@ -215,7 +215,7 @@ const handleListingDelete =  async(listingId) => {
         <p className='text-green-700 mt-5'>{updateSuccess ? 'User is updated successfully!' : ''}
         </p>
         <button onClick= {handleShowListings} className='text-green-700 w-full'>Show Listings</button>
-        <p className='text-red-700 mt-5'>{ShowListingsError ? 'Error showing listings' : ''}</p>
+        <p className='text-red-700 mt-5'>{showListingsError ? 'Error showing listings' : ''}</p>
                  
                   {userListings && 
                   userListings.length > 0 && (
@@ -243,7 +243,9 @@ const handleListingDelete =  async(listingId) => {
                         </Link>
                     </div>
                     </div>
-                    ))}
+                    )
+                    )
+                    }
         
       </div>
       )}

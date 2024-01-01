@@ -11,7 +11,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 
 
 export default function CreateListing() {
-   const {currentUser} = useSelector(state => state.user);
+   const {currentUser} = useSelector((state) => state.user);
    const navigate = useNavigate();
    const params = useParams();
    const [files, setFiles] = useState([]);
@@ -40,7 +40,7 @@ export default function CreateListing() {
         const data = await res.json();
         if(data.success === false){
            console.log(data.message);
-           return
+           return;
         }
         setFormData(data);
         
@@ -135,8 +135,8 @@ export default function CreateListing() {
        e.preventDefault();
        try{
            if(formData.imageUrls.length < 1)
-               return setError('You must upload at least one image')
-           if(formData.regularPrice < +formData.discountPrice) return setError('Discount price must be lower than regular price')
+               return setError('You must upload at least one image');
+           if(+formData.regularPrice < +formData.discountPrice) return setError('Discount price must be lower than regular price')
            setLoading(true);
            setError(false);
            const res= await fetch(`/api/listing/update/${params.listingId}`, {
@@ -161,9 +161,9 @@ export default function CreateListing() {
            setLoading(false);
 
        }
-   }
+   };
  return (
-   <main className='p-3 maxw-4xl mx-auto'>
+   <main className='p-3 max-w-4xl mx-auto'>
        <h1 className='text-3xl font-semibold text-center my-7'>Update a Listing</h1>
        <form onSubmit = {handleSubmit} className='flex flex-col sm:flex-row gap-4' >
            <div className='flex flex-col gap-4 flex-1'>
