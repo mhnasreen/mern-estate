@@ -10,8 +10,9 @@ import {useSelector} from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
 
+
 export default function CreateListing() {
-    const {currentUser} = useSelector(state => state.user);
+    const {currentUser} = useSelector((state) => state.user);
     const navigate = useNavigate();
     const [files, setFiles] = useState([]);
     const [formData, setFormData] = useState({
@@ -97,7 +98,7 @@ export default function CreateListing() {
             setFormData({
                 ...formData,
                 type: e.target.id
-            })
+            });
         }
         if(e.target.id === 'parking' || e.target.id === 'furnished' || e.target.id === 'offer'){
             setFormData({
@@ -223,7 +224,8 @@ export default function CreateListing() {
                     <div className='className = flex flex-col items-center'
                     onChange={handleChange} value={formData.regularPrice}>
                     <p>Regular price</p>
-                    <span className='text-xs'>($ / month)</span>
+                    {formData.type === 'rent' && (
+                    <span className='text-xs'>($ / month)</span> )}
                 </div>
                 </div>
 
@@ -233,8 +235,9 @@ export default function CreateListing() {
                     className='p-3 border border-gray-300 rounded-lg'
                     onChange={handleChange} value={formData.discountPrice} />
                     <div className='flex flex-col items-center'>
-                    <p>Discount price</p>
-                    <span className='text-xs'>($ / month)</span>
+                    <p>Discounted price</p>
+                    {formData.type === 'rent' && (
+                    <span className='text-xs'>($ / month)</span> )}
                 </div>
                 </div>
 
