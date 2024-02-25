@@ -27,9 +27,9 @@ const [searchTerm, setSearchTerm] = useState('');
     <div className='flex justify-between items-center max-w-6xl mx-auto p-3'>
         <Link to='/'>
         <h1 className='font-bold text-sm sm:text-xl flex flex-wrap'>
-            <span className='text-slate-500'>Nasreen</span>
+            <span className='text-slate-500'>Luxe-</span>
             <span className='text-slate-700'>
-                Estate
+                Livin
             </span>
         </h1>
         </Link>
